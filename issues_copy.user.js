@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            issues copy
 // @namespace       https://github.com/zhzLuke96/github-issues-copy-user-js
-// @version         1.0.1
+// @version         1.0.2
 // @description:cn     为issues页面添加markdown复制按钮
 // @description:en     add markdown copy to issues page
 // @author          zhzluke96
@@ -33,7 +33,7 @@
   const html_tpls = {
     btn: (callback) => {
       const btn = renderHtml(
-        `<button data-component="IconButton" type="button" class="prc-Button-ButtonBase-c50BI prc-Button-IconButton-szpyj" data-loading="false" data-no-visuals="true" data-size="medium" data-variant="invisible" aria-describedby=":r59:-loading-announcement" aria-labelledby=":r57:">
+        `<button id="issues_copy_btn" data-component="IconButton" type="button" class="prc-Button-ButtonBase-c50BI prc-Button-IconButton-szpyj" data-loading="false" data-no-visuals="true" data-size="medium" data-variant="invisible" aria-describedby=":r59:-loading-announcement" aria-labelledby=":r57:">
         <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <text x="1" y="11" font-size="10" font-family="Arial, sans-serif" fill="currentColor">MD</text>
 </svg>
@@ -48,7 +48,7 @@
 
   function is_injected() {
     return (
-      document.querySelectorAll(`[data-check-id="issues_copy"]`).length > 0
+      document.querySelectorAll(`[data-check_id="issues_copy"]`).length > 0
     );
   }
 
